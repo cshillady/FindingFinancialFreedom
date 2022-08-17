@@ -1,0 +1,117 @@
+Functions to be added (8/5):
+
+CRUD:
+
+getById for all classes
+Expenses: @GetMapping("/expenses/uid")
+		  @PostMapping("/expenses/uid")
+		  @PutMapping("/expenses/uid/eid")
+		  @DeleteMapping("/expenses/uid/eid")
+		  
+		  
+Income:   @GetMapping("/income/uid")
+		  @PostMapping("/income/uid")
+		  @PutMapping("/income/uid/iid")
+		  @DeleteMapping("/income/uid/iid")	  
+		  
+Investment:   @GetMapping("/investments/uid")
+			  @PostMapping("/investments/uid")
+		      @PutMapping("/investments/uid/inid")
+		      @DeleteMapping("/investments/uid/inid")	
+
+Goals:    @GetMapping("/goals/uid")
+		  @PostMapping("/goals/uid")
+		  @PutMapping("/goals/uid/gid")
+		  @DeleteMapping("/goals/uid/gid")			  
+		  
+Other: 
+
+calculateTotals for income, expense, investments (are we going calculate total in BE or FE) (FE);
+
+
+8/8 LOD: ROY and Dominic
+FE 
+build in login and signup Functions (testing and debugging)
+add drop down menu for frequency (income) [daily, weekly, bi-weekly/semimonthly, monthly, quarterly, yearly]
+
+
+BE
+add in CRUD functions to finances controller
+add table relation information to each controller
+	EXAMPLE MAPPING FOR INCOME
+				i. @GetMapping("/{user_id}/income") (tested)
+				ii. @GetMapping ("/{user_id}/income/{inId}") (tested)
+				iii. @PostMapping ("{userId}/income/create") (tested)
+				iv. @PutMapping ("{userId}/income/{inId}") (tested)
+				v. @DeleteMapping ("{userId}/income/{inId}") (tested)
+
+AWS 
+debug signup issues
+
+8/9
+BE: Unit Testing, Look for errors and exceptions and build in some messages that will help us debug, adding Dates 
+
+FE: Signup functionality, Unit Testing, adjusting to Chrome, Responsivity, decide how to determine Goal ending
+
+AWS: Continue Debugging, figure out how to host with beanstalk or other applicable thing
+
+
+8/10
+BE: Adding in additional user information such as: age, birthdate, exceptions
+
+FE: - construct user profile page
+	- fix retirement calculator
+	- configure default settings on calculators
+	- add in charts and graphs for income/expenses/investments?
+	- goals
+	- FAQs
+	- connect to backend
+	- Fix aspect ratio
+
+AWS: - Get everyone set up with the new AWS DB. 
+	- continue working on beanstalk or other service (docker container service?)
+
+
+8/15
+BE: 
+- add current amount field to goal table
+- savings table
+
+FE: 
+- add current amount field to goal table
+- user profiles
+- add add to currentAmount and remove from currentAmount buttons
+- display both charts on user profile, and maybe on each page?
+- progress bar on goals
+- on retirement calculate
+	- if expenses > income give alert
+	- instead of negatives show alerts?
+- maybe add in scrollable tax %?	
+- savings (id, amount, and type fields)
+
+
+AWS:
+- waiting on final copies
+- jwt auth error (jwt cookie cannot be empty)?
+
+
+Interviews:
+Roy : 1015
+Wendy : 1115
+
+
+8/16
+-Finish Presentation
+
+FE
+-Debug any remaining issues on FE
+-Add savings to retirement calculator
+-add savings module
+-update should switch instead of closing the tab
+-validation on all forms
+
+BE
+-remove investment modules
+-final checks
+-submit to connor for AWS
+-run through all postman commands
