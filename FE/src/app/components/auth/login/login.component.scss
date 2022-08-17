@@ -1,0 +1,18 @@
+.logo {
+    display: grid;
+    place-items: center;
+    margin: auto;
+    padding: auto;
+    padding-top: 10px;
+}
+h3 {
+    color: #023047;
+    font-size: 175%;
+}
+.btn {
+    background-color: #8ECAE6;
+}
+.btn:hover {
+    background-color: #219EBC;
+    border: 1px solid #219EBC;
+}

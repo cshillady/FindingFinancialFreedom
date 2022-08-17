@@ -1,0 +1,94 @@
+.faq-heading{
+    border-bottom: #777;
+    padding: 20px 60px;
+}
+.faq-container{
+display: flex;
+justify-content: center;
+flex-direction: column;
+}
+.hr-line{
+  width: 60%;
+  margin: auto;
+  
+}
+/* Style the buttons that are used to open and close the faq-page body */
+.faq-page {
+    /* background-color: #eee; */
+    color: #444;
+    cursor: pointer;
+    padding: 30px 20px;
+    width: 60%;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin: auto;
+}
+.faq-body{
+    margin: auto;
+    /* text-align: center; */
+   width: 50%; 
+   padding: auto;
+   
+}
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.faq-page:active, .faq-page:hover, .faq-page:focus {
+    background-color: #FB8500;
+}
+/* Style the faq-page panel. Note: hidden by default */
+.faq-body {
+    padding: 0 18px;
+    background-color:transparent;
+    // display: none;
+    // overflow: hidden;
+}
+
+.fag-body:active, .faq-body:focus {
+    display:contents;
+    overflow:visible;
+}
+
+.up-icon{
+    transition: 0.2s ease-out;
+}
+
+.icon{
+    animation-name: icon;
+    transform: rotate(180deg);
+    transition: 0.2s ease-out;
+}
+
+///////////////////////////////////////////////////////////////
+/// 
+h2{
+font-size: 30px;
+color: #fff;
+text-transform: uppercase;
+font-weight: 300;
+text-align: center;
+margin-bottom: 15px;
+margin-top: 30px;
+font-family: 'Playfair Display';
+}
+
+.accordion{
+    margin-top: 30px;
+    background-color: transparent;
+    border: none;
+}
+
+.accordion-item{
+    background-color: transparent;
+    border: none;
+}
+.accordion-button{
+    background-color: rgba(255,255,255,0.3);
+}
+
+.accordion-header{
+    background-color: transparent;
+    border: none;
+}
+.accordion-button:active, .accordion-button:hover, .accordion-button:focus {
+    background-color: #ffb35c;
+}

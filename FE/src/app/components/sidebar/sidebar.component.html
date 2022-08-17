@@ -1,0 +1,106 @@
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  
+  <!-- <a href="https://www.w3schools.com/howto/howto_js_dropdown_sidenav.asp">Link to SideBar Dropdown example</a> -->
+  <div class="sidenav">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home/{{id}}/financeCalc">Retirement Calc.</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home/{{id}}/expenses">Expenses</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home/{{id}}/income">Income</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home/{{id}}/goals">Goals</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home/{{id}}/savings">Savings</a>
+      </li>
+    </ul>
+  </div>
+  
+      <!-- <li class="nav-item">
+        <a class="nav-link" (click)="incomeFreqCollapsed = !incomeFreqCollapsed"
+        [ngStyle]="{'background-color': incomeFreqCollapsed? 'transparent' : '#219EBC'}">
+        Income Freq.
+          <div [ngClass]="incomeFreqCollapsed? 'fa fa-caret-left' : 'fa fa-caret-down'"></div>
+        </a>
+      </li>
+      <div #collapse="ngbCollapse" [(ngbCollapse)]="incomeFreqCollapsed" id="collapsedLinks">
+        <div>
+          <li class="nav-item">
+            <a class="nav-link">Daily</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Weekly</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link">Bi-Weekly</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link">Monthly</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link">Quarterly</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link">Yearly</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Total Income</a>
+          </li>
+        </div>
+      </div>
+  
+      <li class="nav-item">
+          <a class="nav-link" (click)="expensesCollapsed = !expensesCollapsed"
+          [ngStyle]="{'background-color': expensesCollapsed? 'transparent' : '#219EBC'}">
+          Expenses
+            <div [ngClass]="expensesCollapsed? 'fa fa-caret-left' : 'fa fa-caret-down'"></div>
+          </a>
+        </li>
+        <div #collapse="ngbCollapse" [(ngbCollapse)]="expensesCollapsed" id="collapsedLinks">
+          <div>
+            <li class="nav-item">
+              <a class="nav-link">Weekly</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Monthly</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Quarterly</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Yearly</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Total Expenses</a>
+            </li>
+          </div>
+        </div>
+
+        <li class="nav-item">
+          <a class="nav-link" (click)="incomeCollapsed = !incomeCollapsed"
+          [ngStyle]="{'background-color': incomeCollapsed? 'transparent' : '#219EBC'}">
+          Income
+            <div [ngClass]="incomeCollapsed? 'fa fa-caret-left' : 'fa fa-caret-down'"></div>
+          </a>
+        </li>
+        <div #collapse="ngbCollapse" [(ngbCollapse)]="incomeCollapsed" id="collapsedLinks">
+          <div>
+            <li class="nav-item">
+              <a class="nav-link">Investments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Wages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Totals</a>
+            </li>
+          </div>
+        </div>
+    </ul> -->

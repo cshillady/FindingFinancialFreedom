@@ -1,0 +1,18 @@
+.names {
+    display: grid;
+    place-items: center;
+    background-image: url("/assets/logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+li {
+    text-align: center;
+    background: rgba(211, 211, 211, .85);
+    list-style: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 15px;
+    //background-opacity: 90%;
+}

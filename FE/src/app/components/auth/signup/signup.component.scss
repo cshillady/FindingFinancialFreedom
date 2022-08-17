@@ -1,0 +1,20 @@
+* {
+   background-size: cover;
+}
+img {
+   display: grid;
+   place-items: center;
+   margin: auto;
+   border-radius: 25px;
+   margin-top: 10px;
+}
+h3 {
+   color: #023047;
+}
+.btn {
+   background-color: #8ECAE6;
+}
+.btn:hover {
+   background-color: #219EBC;
+   border: 1px solid #219EBC;
+}
