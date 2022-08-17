@@ -1,0 +1,214 @@
+<div class="container-fluid">
+
+  <div id="logo">
+    <img src="/assets/Financial-freedom.jpg" height="250px" width="250px"/>
+    <!--https://boomerandecho.com/still-track-freedom-45/?utm_content=buffer76aa5&amp;utm_medium=social&amp;utm_source=pinterest.com&amp;utm_campaign=buffer-->
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-4-mt-3">
+      <h3 class="text-center">Start Your Journey on the Road to Financial Freedom</h3>
+
+
+      <form 
+          action="" 
+          class="mt-5 p-5" 
+          *ngIf="!isLoggedIn"
+          #f="ngForm"
+          name="form"
+          (ngSubmit)="f.form && onSubmit()"
+          nonvalidate>
+
+      <div class="form-group form-floating mb-3">
+        <input 
+              type="email" 
+              class="form-control" 
+              id="floatingInput" 
+              placeholder="email"
+              [(ngModel)]="form.email"
+              name="email"
+              required
+              #email="ngModel"
+              [ngClass]="{'is-invalid': email.errors && email.touched}">
+        <label for="email">Email address</label>
+        <div *ngIf="email.errors && email.touched" class="invalid-feedback">
+          Email is required!
+        </div>
+      </div>
+
+      <div class="form-floating mb-3 form-group">
+          <input 
+              type="username" 
+              class="form-control" 
+              id="floatingUsername" 
+              placeholder="Username"
+              type="text"
+              class="form-control"
+              name="username"
+              [(ngModel)]="form.username"
+              required
+              #username="ngModel"
+              [ngClass]="{ 'is-invalid': username.errors && username.touched }">
+          <label for="username">Username</label>
+          <div *ngIf="username.errors && username.touched" class="invalid-feedback">
+            Username is required!
+          </div>
+      </div>
+
+      <div class="form-floating mb-3 form-group">
+        <input 
+            type="password" 
+            class="form-control" 
+            id="floatingPassword" 
+            placeholder="Password"
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            #password="ngModel"
+            [ngClass]="{ 'is-invalid': password.touched && password.errors }">
+        <label for="floatingPassword">Password</label>
+        <div *ngIf="password.errors && password.touched" class="invalid-feedback">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-floating mb-3 form-group">
+        <input 
+            type="firstName" 
+            class="form-control" 
+            id="floatingFirstName" 
+            placeholder="First Name"
+            type="text"
+            class="form-control"
+            name="firstName"
+            [(ngModel)]="form.firstName"
+            required
+            #firstName="ngModel"
+            [ngClass]="{ 'is-invalid': firstName.errors && firstName.touched }">
+        <label for="username">First Name</label>
+        <div *ngIf="firstName.errors && firstName.touched" class="invalid-feedback">
+          First Name is required!
+        </div>
+      </div>
+
+      <div class="form-floating mb-3 form-group">
+        <input 
+            type="lastName" 
+            class="form-control" 
+            id="floatingLastName" 
+            placeholder="Last Name"
+            type="text"
+            class="form-control"
+            name="lastName"
+            [(ngModel)]="form.lastName"
+            required
+            #lastName="ngModel"
+            [ngClass]="{ 'is-invalid': lastName.errors && lastName.touched }">
+        <label for="lastName">Last Name</label>
+        <div *ngIf="lastName.errors && lastName.touched" class="invalid-feedback">
+          Last Name is required!
+        </div>
+      </div>
+
+      <div class="form-floating mb-3 form-group">
+        <input 
+            type="city" 
+            class="form-control" 
+            id="floatingCity" 
+            placeholder="City"
+            type="text"
+            class="form-control"
+            name="city"
+            [(ngModel)]="form.city"
+            required
+            #city="ngModel"
+            [ngClass]="{ 'is-invalid': city.errors && city.touched }">
+        <label for="city">City</label>
+        <div *ngIf="city.errors && city.touched" class="invalid-feedback">
+          City is required!
+        </div>
+      </div>
+
+      <div class="form-floating mb-3 form-group">
+        <input 
+            type="state" 
+            class="form-control" 
+            id="floatingState" 
+            placeholder="State"
+            type="text"
+            class="form-control"
+            name="state"
+            [(ngModel)]="form.state"
+            required
+            #state="ngModel"
+            [ngClass]="{ 'is-invalid': state.errors && state.touched }">
+        <label for="state">State</label>
+        <div *ngIf="city.errors && state.touched" class="invalid-feedback">
+          State is required!
+        </div>
+      </div>
+
+      <div class="form-floating mb-3 form-group">
+        <input 
+            type="country" 
+            class="form-control" 
+            id="floatingCountry" 
+            placeholder="Country"
+            type="text"
+            class="form-control"
+            name="Country"
+            [(ngModel)]="form.country"
+            required
+            #country="ngModel"
+            [ngClass]="{ 'is-invalid': country.errors && country.touched }">
+        <label for="country">Country</label>
+        <div *ngIf="country.errors && country.touched" class="invalid-feedback">
+          Country is required!
+        </div>
+      </div>
+
+      <div class="form-floating mb-3 form-group">
+        <input 
+            matInput [matDatepicker]="picker"
+            type="dateOfBirth" 
+            class="form-control" 
+            id="floatingDateOfBirth" 
+            placeholder="dateOfBirth"
+            type="text"
+            class="form-control"
+            name="dateOfBirth"
+            [(ngModel)]="form.dateOfBirth"
+            required
+            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+            #dateOfBirth="ngModel"
+            [ngClass]="{ 'is-invalid': dateOfBirth.errors && dateOfBirth.touched }">
+            <!-- <input matInput [matDatepicker]="picker"> -->
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+        <label for="dateOfBirth">Date of Birth</label>
+        <!-- <div *ngIf="dateOfBirth.errors && dateOfBirth.touched" class="invalid-feedback">
+          <div *ngIf="dateOfBirth.errors['required']">Date of Birth is required</div>
+          <div *ngIf="dateOfBirth.errors['pattern']">
+            Birth Date must be formatted YYYY-MM-DD
+          </div>
+        </div> -->
+      </div>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn" type="button" (click)="onSubmit()">Create Account</button>
+      </div>
+
+        <a routerLink="/login" class="text-primary" style="text-decoration: none;">Already have an account?</a>
+
+      </form>
+      </div>
+  </div>
+</div>

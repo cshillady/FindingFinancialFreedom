@@ -1,0 +1,89 @@
+<div id="body">
+<h3>We've preloaded this with the data you've enter. Feel free to tinker with the sliders to find out more about your retirement</h3>
+    <div class="age">
+        <p>Age</p><mat-slider 
+                            min="0" 
+                            max="90" 
+                            step="1" 
+                            [(ngModel)]="ageValue" 
+                            thumbLabel 
+                            tickInterval="1"
+                            ></mat-slider>
+        <label>{{ageValue}}</label>
+    </div>
+
+    <div class="lifeExpect">
+        <p>Life Expectancy</p><mat-slider
+                                        min="70" 
+                                        max="100" 
+                                        step="5" 
+                                        [(ngModel)]="lifeExpectValue" 
+                                        thumbLabel 
+                                        tickInterval="1"></mat-slider>
+        <label>{{lifeExpectValue}}</label>
+    </div>
+
+    <div class="goalAge">
+        <p>Goal Age</p><mat-slider
+                                        min="40" 
+                                        max="90" 
+                                        step="5" 
+                                        [(ngModel)]="goalAgeValue" 
+                                        thumbLabel 
+                                        tickInterval="1"></mat-slider>
+        <label>{{goalAgeValue}}</label>
+    </div>
+
+    <div class="income">
+        <p>Income</p><mat-slider
+                                        min="0" 
+                                        max="200000" 
+                                        step="10000" 
+                                        [(ngModel)]="incomeValue" 
+                                        thumbLabel 
+                                        tickInterval="1"></mat-slider>
+        <label>{{incomeValue | currency}}</label>
+    </div>
+    <!-- <div class="savings">
+        <p>Savings</p><mat-slider
+                                        min="0" 
+                                        max="200000" 
+                                        step="10000" 
+                                        [(ngModel)]="savingsValue" 
+                                        thumbLabel 
+                                        tickInterval="1"></mat-slider>
+        <label>{{savingsValue | currency}}</label>
+    </div> -->
+
+    <div class="yearlyExpenses">
+        <p>Expenses (Yearly)</p><mat-slider
+                                        min="0" 
+                                        max="200000" 
+                                        step="10000" 
+                                        [(ngModel)]="expensesValue" 
+                                        thumbLabel 
+                                        tickInterval="1"></mat-slider>
+        <label>{{expensesValue | currency}}</label>
+    </div>
+
+    <!-- <button (onClick)="calculateAffordableRetirementYears()">Calculate</button> -->
+    <div class="results">
+        <p>Current Income Surplus: {{incomeValue - expensesValue | currency}}<p>
+        <p>Years Until Retirement: {{ goalAgeValue - ageValue }}</p>
+        <p>Total Savings Accrued: {{((goalAgeValue - ageValue) * (incomeValue - expensesValue)) | currency}}</p>
+        <!-- <p>Years of Savings: {{lifeExpectValue - (goalAgeValue - ageValue)}}</p> -->
+        <p>Length of Retirement {{lifeExpectValue - goalAgeValue}}</p>
+        <p>Amount You Can Spend Each Year: {{ (((goalAgeValue - ageValue) * (incomeValue - expensesValue)))/(lifeExpectValue - goalAgeValue) | currency}} </p>
+    </div>
+
+</div>
+
+
+<!--
+    - slider for after retirement budget
+    - yearly savings
+    - name check
+    - load fields dynamically (onInit)
+    - text boxes for values
+    - charts to display data
+-->

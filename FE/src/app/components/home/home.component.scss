@@ -1,0 +1,113 @@
+* {
+	margin: auto;
+	padding: 0;
+	//box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+body {
+    // background-image: linear-gradient(to right bottom, #023047, #219EBC, #8ECAE6, #FFB703, #FB8500);
+    margin: auto;
+    padding: auto;
+    width: 100%;
+}
+.logo {
+    display: grid;
+    place-items: center;
+    padding-top: 10%;
+    color: white;
+}
+.logo h1 {
+    margin: 5px;
+}
+#buttons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 50vh;
+	//background: #17202A;
+    margin: auto;
+}
+#buttons a {
+	text-decoration: none;
+	display: inline-block;
+	position: relative;
+	padding: 20px 40px;
+	text-transform: uppercase;
+	color: #ddd;
+	background: #1C2833;
+	font-size: 16px;
+	margin: 20px;
+	letter-spacing: 0.7em;
+	border-radius: 2px;
+}
+#buttons a p{
+	position: absolute;
+	display: block;
+	background: #FF5722;
+}
+#buttons a p:nth-child(1){
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s;
+}
+#buttons a:hover p:nth-child(1){
+	transform: scaleX(1);
+	transform-origin: left;
+	transition: transform 0.25s;
+}
+
+#buttons a p:nth-child(2){
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.25s;
+}
+#buttons a:hover p:nth-child(2){
+	transform: scaleY(1);
+	transform-origin: bottom;
+	transition: transform 0.25s;
+	transition-delay: 0.25s;
+}
+
+#buttons a p:nth-child(3){
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s;
+}
+#buttons a:hover p:nth-child(3){
+	transform: scaleX(1);
+	transform-origin: right;
+	transition: transform 0.25s;
+	transition-delay: 0.35s;
+}
+
+#buttons a p:nth-child(4){
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+#buttons a:hover p:nth-child(4){
+	transform: scaleY(1);
+	transform-origin: top;
+	transition: transform 0.25s;
+	transition-delay: 0.45s;
+}
+#buttons a:hover{
+	transition: 0.5s;
+	transition-delay: 1s;
+	background: #FF5722;
+}

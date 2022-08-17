@@ -1,0 +1,112 @@
+<h2>Welcome to you Income!</h2>
+<h4>Add your source of income for accurate calculations </h4>
+<div class="container">
+    <div class="tbl-header">
+    <table>
+        <thead>
+            <tr >
+                <th>Id</th>
+                <th>Goal Amount</th>
+                <th>Current Amount Saved</th>
+                <th>Category</th>
+                <th>Start Date</th>
+                <th>Completion Date</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+    </table>
+    </div>
+        
+<div>
+        <table>
+        <tbody>
+            <tr *ngFor="let goal of goals">
+                <td>{{ goal.id }}</td>
+                <td>{{ goal.amount | currency: 'USD'}}</td>
+                <td>{{ goal.currentAmount | currency: 'USD'}}</td>
+                <td>{{ goal.category }}</td>
+                <td>{{ goal.startDate }}</td>
+                <td>{{ goal.completionDate }}</td>
+                <td><button class="btn btn-up" (click)="updateToggler(goal.id)">Update</button>
+                    <button class="btn btn-del" (click)="deleteGoal(goal.id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+ </div>
+    
+ <div class="add col-md-4" style="margin: auto; text-align: center; width: 500px; padding: 10px 0px;">
+    <button class="btn col-md-4 btn-success" (click)="addGoalToggler()"  id="add-goal">Add Goal</button>
+    
+    <div *ngIf="updateToggle">
+        <form (ngSubmit)="updateGoal(currentGoalId)">
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Amount" value="{{goal.amount}}" [(ngModel)]="goal.amount" name="amount">
+            </mat-form-field><br>
+            <button class="btn btn-danger" (click)="subtractFromGoal(currentGoalAmount)">-</button>
+            <mat-form-field>
+                <input matInput placeholder="Add/Subtract From Saved Amount" [(ngModel)]="currentGoalAmount" name="currentAmount" type="text">
+            </mat-form-field>
+            <button class="btn btn-success" (click)="addToGoal(currentGoalAmount)">+</button><br>
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Category" value="{{goal.category}}" [(ngModel)]="goal.category" name="category">
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                  <input matStartDate placeholder="Start date" [(ngModel)]="goal.startDate"
+                  name="startDate">
+                  <input matEndDate placeholder="End date"
+                  [(ngModel)]="goal.completionDate"
+                    name="completionDate">
+                </mat-date-range-input>
+                <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+              </mat-form-field><br>
+              <button class="btn btn-submit" type="submit">Submit</button>
+        </form >
+    </div>
+</div>
+</div>
+
+
+<div *ngIf="addGoalToggle" style="margin: auto; text-align: center; width: 200px;">
+    <form (ngSubmit)="addGoal(goal)">
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="Amount" value="{{goal.amount}}" [(ngModel)]="goal.amount" name="amount">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="currentAmount" value="{{goal.currentAmount}}" [(ngModel)]="goal.currentAmount" name="currentAmount">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="Category" value="{{goal.category}}" [(ngModel)]="goal.category" name="category">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate placeholder="Start date" [(ngModel)]="goal.startDate"
+              name="startDate">
+              <input matEndDate placeholder="End date"
+              [(ngModel)]="goal.completionDate"
+                name="completionDate">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field><br>
+
+        <button class="btn btn-submit" type="submit">Submit</button>
+    </form >
+    
+</div>
+
+<div style="position: relative" *ngFor="let goal of goals">
+    <mat-progress-bar mode="determinate" [value]="(goal.currentAmount/goal.amount) * 100" class="pBar"></mat-progress-bar>
+    <span style="position: relative; font-size: larger; font-weight: bold;">{{goal.category}}</span><br>
+    <span style="position: relative; font-size: larger; font-weight: bold;">{{goal.currentAmount | currency: 'USD'}}/{{goal.amount | currency: 'USD'}}</span>
+</div>
+
+
+
+
+        

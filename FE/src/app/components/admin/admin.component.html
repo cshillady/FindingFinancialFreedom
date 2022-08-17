@@ -1,0 +1,85 @@
+<div>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Date of Birth</th>
+                <th>Admin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.city }}</td>
+                <td>{{ user.state }}</td>
+                <td>{{ user.country }}</td>
+                <td>{{ user.dateOfBirth }}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="updateToggler(user.id)">Update</button> /
+                    <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>        
+
+    <div class="add" *ngIf="updateToggle" style="padding-top:10px; width: fit-content; min-width: 200px; margin: auto;">
+        <h3 style="margin: auto; text-align: center;">Update User Infomation</h3>
+
+        <form (ngSubmit)="updateUser(user.id)" style="padding-top: 10px;">
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Username" value="{{user.username}}" [(ngModel)]="user.username" name="username">
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Email" value="{{user.email}}" [(ngModel)]="user.email" name="email">
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="First Name" value="{{user.firstName}}" [(ngModel)]="user.firstName" name="firstName">
+            </mat-form-field><br>
+            
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Last Name" value="{{user.lastName}}" [(ngModel)]="user.lastName" name="lastName">
+            </mat-form-field><br>
+            
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="City" value="{{user.city}}" [(ngModel)]="user.city" name="city">
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="State" value="{{user.state}}" [(ngModel)]="user.state" name="state">
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Country" value="{{user.country}}" [(ngModel)]="user.country" name="country">
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <input 
+                    matInput [matDatepicker]="picker"
+                    type="dateOfBirth"  
+                    placeholder="dateOfBirth"
+                    type="text"
+                    name="dateOfBirth"
+                    [(ngModel)]="user.dateOfBirth"
+                    required
+                    #dateOfBirth="ngModel">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                <!-- <label for="dateOfBirth">Date of Birth</label> -->
+            </mat-form-field><br>
+            <button class="btn btn-primary" style="padding-top: 10px;" type="submit">Submit</button>
+        </form >
+    </div>
+</div>

@@ -1,0 +1,122 @@
+<h2>Welcome to you Expenses!</h2>
+<h4>Add your expenses for accurate calculations </h4>
+<div class="container">
+    <div class="tbl-header">
+    <table>
+        <thead>
+            <tr >
+                <th>Id</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Frequency</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+    </table>
+    </div>
+        <div>
+            <table>
+        <tbody>
+            <tr *ngFor="let expense of expenses">
+                <td>{{ expense.id }}</td>
+                <td>{{ expense.amount | currency}}</td>
+                <td>{{ expense.description }}</td>
+                <td>{{ expense.frequency }}</td>
+                <td><button class="btn btn-up" (click)="updateToggler(expense.id)">Update</button>
+                    <button class="btn btn-del" (click)="deleteExpense(expense.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+  <div>
+    <div class="total-card">
+        <div class="card-body">
+            Total <select #frequency (change)="onSelected(frequency.value)" class="selection">
+                <option default>Weekly</option>
+                <option>Daily</option>
+                <option>Weekly</option>
+                <option>Bi-Weekly</option>
+                <option>Monthly</option>
+                <option>Quarterly</option>
+                <option>Yearly</option>
+            </select> Expenses: {{adjustedTotal | currency}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="add col-md-4" style="margin: auto; text-align: center; width: 500px; padding: 10px 0px;">
+            <button class="addButton btn col-md-4 btn-success" id="add-exp" (click)="addExpenseToggler()">Add Expense(s)</button>
+            <div class="add" *ngIf="addExpenseToggle" style="padding-top:10px; width: fit-content; min-width: 200px; margin: auto;">
+                <h3 style="margin: auto; text-align: center;">Add Expense(s)</h3>
+                <form (ngSubmit)="addExpense(expense)" style="padding-top: 10px;">
+                    <mat-form-field appearance="fill">
+                        <input matInput placeholder="Amount" value="{{expense.amount}}" [(ngModel)]="expense.amount" name="amount">
+                    </mat-form-field><br>
+                    <mat-form-field appearance="fill">
+                        <input matInput placeholder="Description" value="{{expense.description }}" [(ngModel)]="expense.description" name="description">
+                    </mat-form-field><br>
+                    <mat-form-field>
+                        <mat-select appearance="fill" [(ngModel)]="expense.frequency" name="frequency">
+                            <mat-option value="Frequency" >Frequency</mat-option>
+                            <mat-option default value="Daily">Daily</mat-option>
+                            <mat-option value="Weekly">Weekly</mat-option>
+                            <mat-option value="Bi-Weekly">Bi-Weekly</mat-option>
+                            <mat-option value="Monthly">Monthly</mat-option>
+                            <mat-option value="Quarterly">Quarterly</mat-option>
+                            <mat-option value="Yearly">Yearly</mat-option>
+                        </mat-select>
+                    </mat-form-field><br> 
+                    <button class="btn btn-submit" style="padding-top: 10px;" type="submit">Submit</button>
+                </form >
+            </div>
+            <div class="update" *ngIf="updateToggle" style="padding-top:10px; width: fit-content; min-width: 150px; margin: auto;">
+                <h3 style="margin: auto; text-align: center; width: 200px;">Update {{user.username}}'s Expenses</h3>
+                <form (ngSubmit)="updateExpense(currentExpenseId)" style="padding-top: 10px;">
+                    <mat-form-field appearance="fill">
+                        <input matInput placeholder="Amount" value="{{expense.amount}}" [(ngModel)]="expense.amount" name="amount">
+                    </mat-form-field><br>
+                    <mat-form-field appearance="fill">
+                        <input matInput placeholder="Description" value="{{expense.description }}" [(ngModel)]="expense.description" name="description">
+                    </mat-form-field><br>
+                    <mat-form-field>
+                        <mat-select appearance="fill" [(ngModel)]="expense.frequency" name="frequency">
+                            <mat-option value="Frequency" >Frequency</mat-option>
+                            <mat-option default value="Daily">Daily</mat-option>
+                            <mat-option value="Weekly">Weekly</mat-option>
+                            <mat-option value="Bi-Weekly">Bi-Weekly</mat-option>
+                            <mat-option value="Monthly">Monthly</mat-option>
+                            <mat-option value="Quarterly">Quarterly</mat-option>
+                            <mat-option value="Yearly">Yearly</mat-option>
+                        </mat-select>
+                    </mat-form-field><br>  
+                    <button class="btn btn-submit" style="padding-top:10px;" type="submit">Submit</button>
+                </form >
+            </div>
+        </div>
+        <div class="col-md-4" style="display: block; width: 500px; height: 400px;">
+            <canvas baseChart
+                [labels]="doughnutChartLabels"
+                [datasets]="doughnutChartDatasets"
+                [options]="doughnutChartOptions"
+                [legend]="true"
+                [type]="'doughnut'">
+            </canvas><br>
+            
+        </div>      
+    </div>
+   
+</div>
+
+      
+
+<div style="display: block; width: 500px; height: 400px;">
+    <canvas baseChart
+        [labels]="doughnutChartLabels"
+        [datasets]="doughnutChartDatasets"
+        [options]="doughnutChartOptions"
+        [legend]="true"
+        [type]="'doughnut'">
+    </canvas><br>
+    
+</div>

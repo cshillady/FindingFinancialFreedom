@@ -1,0 +1,105 @@
+<h2 *ngIf="!deleteToggle">Edit your user info here!</h2>
+<div class="container" *ngIf="!deleteToggle">
+    <div class="tbl-header">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        </table>
+    </div>
+
+    <div>
+    <table>
+        <tbody>
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.city }}</td>
+                <td>{{ user.state }}</td>
+                <td>{{ user.country }}</td>
+                <td><button class="btn btn-up" (click)="updateToggler(user.id)">Update</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    <div class="add" *ngIf="updateToggle" style="padding-top:10px; width: fit-content; min-width: 200px; margin: auto;">
+        <h3 style="margin: auto; text-align: center;">Update User Infomation</h3>
+        <form (ngSubmit)="updateUser(user.id)" style="padding-top: 10px;">
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Username" value="{{user.username}}" [(ngModel)]="user.username" name="username">
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Email" value="{{user.email}}" [(ngModel)]="user.email" name="email">
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="First Name" value="{{user.firstName}}" [(ngModel)]="user.firstName" name="firstName">
+            </mat-form-field><br>
+            
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Last Name" value="{{user.lastName}}" [(ngModel)]="user.lastName" name="lastName">
+            </mat-form-field><br>
+            
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="City" value="{{user.city}}" [(ngModel)]="user.city" name="city">
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="State" value="{{user.state}}" [(ngModel)]="user.state" name="state">
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Country" value="{{user.country}}" [(ngModel)]="user.country" name="country">
+            </mat-form-field><br>
+            
+            <mat-form-field appearance="fill">
+                <input matInput type = "password" placeholder="Password" [(ngModel)]="user.password" value = ""  name="password">
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <input 
+                    matInput [matDatepicker]="picker"
+                    type="dateOfBirth"  
+                    placeholder="dateOfBirth"
+                    type="text"
+                    name="dateOfBirth"
+                    [(ngModel)]="user.dateOfBirth"
+                    required
+                    #dateOfBirth="ngModel">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                <!-- <label for="dateOfBirth">Date of Birth</label> -->
+            </mat-form-field><br>
+            
+            <button class="btn btn-submit" style="padding-top: 10px;" type="submit">Submit</button>
+        </form>
+    </div>
+    
+</div>
+<div style="margin: auto; text-align: center;" class="delete" *ngIf="deleteToggle" style="padding-top:10px; width: fit-content; min-width: 200px; margin: auto;">
+    <h3 style="font-weight: bold;">Are you sure you want to delete this account?!</h3>
+    <button class="btn btn-yes" (click)="deleteUser(user.id)">YES</button>
+    <button class="btn btn-no" (click)="deleteToggler(user.id)">NO</button>
+</div>
+
+
+<div class="logo">
+    <img src="/assets/logo.png" width="250px" height="250px">
+    <h1>Finding Financial Freedom</h1>
+</div>
+
+<footer *ngIf="!deleteToggle">
+    <button class="btn btn-del" (click)="deleteToggler(user.id)">Delete {{ user.username }}'s Account</button>
+</footer>
+

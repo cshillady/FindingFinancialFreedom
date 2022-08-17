@@ -1,0 +1,215 @@
+<h2>Welcome to you Income!</h2>
+<h4>Add your sourced of income for accurate calculations</h4>
+<div class="container">
+  <div class="tbl-header">
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Source</th>
+          <th>Amount</th>
+          <th>Frequency</th>
+          <th>Description</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div>
+    <table>
+      <tbody>
+        <tr *ngFor="let income of incomes">
+          <td>{{ income.id }}</td>
+          <td>{{ income.source }}</td>
+          <td>{{ income.amount | currency }}</td>
+          <td>{{ income.frequency }}</td>
+          <td>{{ income.description }}</td>
+          <td>
+            <button class="btn btn-up" (click)="updateToggler(income.id)">
+              Update
+            </button>
+            <button class="btn btn-del" (click)="deleteIncome(income.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="total-card">
+    <div class="card-body">
+      Total
+      <select
+        #frequency
+        (change)="onSelected(frequency.value)"
+        class="selection"
+      >
+        <option>Hourly</option>
+        <option>Daily</option>
+        <option>Weekly</option>
+        <option>Bi-Weekly</option>
+        <option>Monthly</option>
+        <option>Quarterly</option>
+        <option>Yearly</option>
+      </select>
+      Income: {{ adjustedTotal | currency }}
+    </div>
+  </div>
+  <div class="row">
+    <div
+      class="add"
+      style="margin: auto; text-align: center; width: 500px; padding: 10px 0px"
+    >
+      <button
+        class="addButton btn col-md-4 btn-success"
+        id="add-inc"
+        (click)="addIncomeToggler()"
+      >
+        Add Income
+      </button>
+      <div
+        class="add"
+        *ngIf="addIncomeToggle"
+        style="padding-top: 10px; width: fit-content; margin: auto"
+      >
+        <h3 style="margin: auto; text-align: center; width: 125px">
+          Add Income
+        </h3>
+        <form
+          class="card-body"
+          (ngSubmit)="addIncome(income)"
+          style="padding-top: 10px"
+        >
+          <mat-form-field appearance="fill">
+            <input
+              matInput
+              placeholder="Source"
+              value="{{ income.source }}"
+              [(ngModel)]="income.source"
+              name="source"
+            /> </mat-form-field
+          ><br />
+          <mat-form-field appearance="fill">
+            <input
+              matInput
+              placeholder="Amount"
+              value=""
+              [(ngModel)]="income.amount"
+              name="amount"
+            /> </mat-form-field
+          ><br />
+          <mat-form-field appearance="fill">
+            <input
+              matInput
+              placeholder="Description"
+              value="{{ income.description }}"
+              [(ngModel)]="income.description"
+              name="description"
+            /> </mat-form-field
+          ><br />
+          <mat-form-field>
+            <mat-select
+              appearance="fill"
+              [(ngModel)]="income.frequency"
+              name="frequency"
+            >
+              <mat-option value="Frequency">Frequency</mat-option>
+              <mat-option default value="Daily">Daily</mat-option>
+              <mat-option value="Weekly">Weekly</mat-option>
+              <mat-option value="Bi-Weekly">Bi-Weekly</mat-option>
+              <mat-option value="Monthly">Monthly</mat-option>
+              <mat-option value="Quarterly">Quarterly</mat-option>
+              <mat-option value="Yearly">Yearly</mat-option>
+            </mat-select> </mat-form-field
+          ><br />
+          <button
+            class="btn btn-submit"
+            style="padding-top: 10px"
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+      <div
+        class="update col-md-4"
+        *ngIf="updateToggle"
+        style="padding-top: 10px; width: fit-content; margin: auto"
+      >
+        <h3 style="margin: auto; text-align: center; width: 200px">
+          Update {{ user.username }}'s Income
+        </h3>
+        <form
+          class="card-body"
+          (ngSubmit)="updateIncome(currentIncomeId)"
+          style="padding-top: 10px"
+        >
+          <mat-form-field appearance="fill">
+            <input
+              matInput
+              placeholder="Source"
+              value="{{ income.source }}"
+              [(ngModel)]="income.source"
+              name="source"
+            /> </mat-form-field
+          ><br />
+          <mat-form-field appearance="fill">
+            <input
+              matInput
+              placeholder="Amount"
+              value=""
+              [(ngModel)]="income.amount"
+              name="amount"
+            /> </mat-form-field
+          ><br />
+          <mat-form-field appearance="fill">
+            <input
+              matInput
+              placeholder="Description"
+              value="{{ income.description }}"
+              [(ngModel)]="income.description"
+              name="description"
+            /> </mat-form-field
+          ><br />
+          <mat-form-field>
+            <mat-select
+              appearance="fill"
+              [(ngModel)]="income.frequency"
+              name="frequency"
+            >
+              <mat-option value="Frequency">Frequency</mat-option>
+              <mat-option default value="Daily">Daily</mat-option>
+              <mat-option value="Weekly">Weekly</mat-option>
+              <mat-option value="Bi-Weekly">Bi-Weekly</mat-option>
+              <mat-option value="Monthly">Monthly</mat-option>
+              <mat-option value="Quarterly">Quarterly</mat-option>
+              <mat-option value="Yearly">Yearly</mat-option>
+            </mat-select> </mat-form-field
+          ><br />
+          <button
+            class="btn btn-submit"
+            style="padding-top: 10px"
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-4" style="display: block; width: 500px; height: 400px">
+      <canvas
+        baseChart
+        [labels]="doughnutChartLabels"
+        [datasets]="doughnutChartDatasets"
+        [options]="doughnutChartOptions"
+        [legend]="true"
+        [type]="'doughnut'"
+      >
+      </canvas
+      ><br />
+
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,120 @@
+.container{
+    margin: 5px;
+    display:
+    table{ 
+        text-align: center;
+        font-family: 'poppins', sans-serif;
+    }
+}
+.logo{
+    display: grid;
+    place-items: center;
+    padding-top: 10%;
+    color: white;
+}
+p {
+    text-align: center;
+}
+
+mat-progress-bar {
+    height: 2em;
+    margin-top: 20px;
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+    //background: #FB8500;
+    background-image: linear-gradient(to right bottom, #FB8500, #FFB703, #8ECAE6,  #219EBC, #023047,);
+ 
+}
+
+.pBar{
+    border: 1px solid black;
+    border-radius: 20px;
+}
+h2{
+    font-size: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-family: 'Playfair Display';
+  }
+  h4{
+    color: black;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+table{
+    width:100%;
+    table-layout: fixed;
+  }
+  .tbl-header{
+    background-color: rgba(255,255,255,0.3);
+   }
+  .tbl-content{
+    height:300px;
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  th{
+    padding: 20px 15px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 12px;
+    color: black;
+    text-transform: uppercase;
+  }
+  td{
+    text-align: center;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: black;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+  }
+  .btn{
+  margin-left: 3px;
+  }
+
+  .btn-up{
+    border-color: blue($color: #000000);
+    background-color: #fff;
+  }
+  .btn-del{
+    color: white;
+    background-color: #000000;
+  }
+
+  .total-card{
+    margin: auto;
+    text-align: center;
+    width: 300px;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-weight: bold;
+  }
+
+  .selection{
+    background-color: rgba(255,255,255,0.3);
+    color: black;
+    border: white;
+  }
+
+  #add-goal{
+    background-color: #000000;
+  }
+
+  .btn-submit{
+    color: white;
+    background-color: black;
+  }
+
+
+
+
+

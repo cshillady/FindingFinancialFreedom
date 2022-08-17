@@ -1,0 +1,54 @@
+@import "~bootstrap/scss/bootstrap";
+
+.sidenav {
+    width: 15%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 50;
+    left: 0;
+    overflow-x: hidden;
+    // background: linear-gradient(to right bottom, #023047, #219EBC, #8ECAE6, #FFB703, #FB8500);
+    background-color: transparent;
+    padding-top: 20;
+}
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+}
+.sidenav a:hover{
+    color: white;
+    cursor: pointer;
+}
+
+
+.sidenav a:hover, .sidenav a:active,.sidenav a:focus {
+    color: #FB8500;
+    cursor: pointer;
+}
+
+h4 {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+#collapseMenu:hover, a:hover {
+    cursor: pointer;
+    color: white;
+}
+.fa-caret-left, .fa-caret-down {
+    float: right;
+    margin: auto;
+   
+}
+.nav-link {
+    color: darkgray;
+
+}
